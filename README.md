@@ -6,5 +6,5 @@ This repository demonstrates some of the capabilities of the `marimo` library, w
 
 - Git-friendly notebook format
 - Built-in support for reproducible environments
-- Easy to share and collaborate
+- Easy to share and collaborate through [molab](https://molab.marimo.io/notebooks)
 - Can run as a standalone script or as an application
