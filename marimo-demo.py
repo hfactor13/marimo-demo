@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.15.2"
+__generated_with = "0.16.5"
 app = marimo.App(width="medium")
 
 
@@ -89,11 +89,6 @@ def _(mo, vg_sales):
 def _(pd, vg_sales):
     vg_sales["Category of Global Sales"] = pd.cut(vg_sales["Global_Sales"], bins = 5, labels = ["Very Low", "Low", "Medium", "High", "Very High"])
     vg_sales
-    return
-
-
-@app.cell
-def _():
     return
 
 
