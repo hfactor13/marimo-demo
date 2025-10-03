@@ -82,12 +82,13 @@ def _(mo, vg_sales):
         GROUP BY Name
         """
     )
-    return (vg_sales_agg,)
+    return
 
 
 @app.cell
-def _(pd, vg_sales_agg):
-    pd.cut(vg_sales_agg["Total_NA_Sales"], bins = 5)
+def _(pd, vg_sales):
+    vg_sales["Category of Global Sales"] = pd.cut(vg_sales["Global_Sales"], bins = 5, labels = ["Very Low", "Low", "Medium", "High", "Very High"])
+    vg_sales
     return
 
 
