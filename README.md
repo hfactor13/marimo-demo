@@ -41,17 +41,17 @@ In `edit` mode, you can modify the notebook and its environment. In `run` mode, 
 For `edit` mode, run the following command in the terminal:
 
 ```bash
-marimo edit marimo_demo_notebook.py
+marimo edit marimo-demo.py
 ```
 
 For `run` mode, run the following command in the terminal:
 
 ```bash
-marimo run marimo_demo_notebook.py
+marimo run marimo-demo.py
 ```
 
-Marimo can also be run in an isolated sandboxed environment with the following command below. For more details, see the [documentation](https://docs.marimo.io/guides/package_management/notebooks_in_projects/?h=sandbox).
+Marimo can also be run in an isolated sandboxed environment with the following command below. For more details, see the [documentation](https://docs.marimo.io/guides/package_management/notebooks_in_projects/).
 
 ```bash
-marimo edit --sandbox notebook.py
+marimo edit --sandbox marimo-demo.py
 ```
