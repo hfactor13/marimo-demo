@@ -61,10 +61,22 @@ def _(plt, t, y):
 
 
 @app.cell
+def _(mo):
+    mo.md(r"""Example dataset with video game sales from [Kaggle](https://www.kaggle.com/code/upadorprofzs/eda-video-game-sales/input)""")
+    return
+
+
+@app.cell
 def _(pd):
     vg_sales = pd.read_csv("./data/vgsales.csv")
     vg_sales
     return (vg_sales,)
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""SQL Aggregation""")
+    return
 
 
 @app.cell
@@ -82,6 +94,12 @@ def _(mo, vg_sales):
         GROUP BY Name
         """
     )
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""Chart View""")
     return
 
 
