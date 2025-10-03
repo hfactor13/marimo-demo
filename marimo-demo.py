@@ -50,13 +50,14 @@ def _(A, B, np, omega, phi):
 
 @app.cell
 def _(plt, t, y):
-    plt.figure(figsize=(10,6))
-    plt.plot(t, y)
-    plt.xlabel("$x$")
-    plt.ylabel("$y$")
-    plt.title("Response")
-    plt.grid(True)
-    plt.show()
+    fig = plt.figure(figsize=(10,6))
+    ax = fig.gca()
+    ax.plot(t, y)
+    ax.set_xlabel("$x$")
+    ax.set_ylabel("$y$")
+    ax.set_title("Response")
+    ax.grid(True)
+    fig
     return
 
 
