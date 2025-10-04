@@ -19,7 +19,8 @@ def _(mo):
     omega = mo.ui.slider(start = 0, stop = 10, value = 1, step = 0.25, label = r"$\omega$", show_value = True, include_input = True)
     phi = mo.ui.slider(start = -10, stop = 10, value = 0, step = 0.25, label = r"$\phi$", show_value = True, include_input = True)
     B = mo.ui.slider(start = -10, stop = 10, value = 0, step = 0.25, label = "B", show_value = True, include_input = True)
-    return A, B, omega, phi
+    C = mo.ui.slider(start = 0, stop = 5, value = 0, step = 0.1, label = "C", show_value = True, include_input = True)
+    return A, B, C, omega, phi
 
 
 @app.cell
@@ -29,28 +30,29 @@ def _(mo):
 
 
 @app.cell
-def _(A, B, mo, omega, phi):
-    mo.vstack([A, omega, phi, B])
+def _(A, B, C, mo, omega, phi):
+    mo.vstack([A, omega, phi, B, C])
     return
 
 
 @app.cell
-def _(A, B, mo, omega, phi):
+def _(A, B, C, mo, omega, phi):
     mo.md(
         f"""
-    The amplitude is {A.value} \n
-    The angular frequency is {omega.value} \n
-    The phase shift is {phi.value} \n
-    The intercept is {B.value} \n
+    The **amplitude** is {A.value} \n
+    The **angular frequency** is {omega.value} \n
+    The **phase shift** is {phi.value} \n
+    The **intercept** is {B.value} \n
+    The **exponential decay parameter** is {C.value}
     """
     )
     return
 
 
 @app.cell
-def _(A, B, np, omega, phi):
+def _(A, B, C, np, omega, phi):
     t = np.arange(0, 20, 0.06)
-    y = A.value * np.cos(omega.value * t + phi.value) + B.value
+    y = np.exp(-C.value*t) * A.value * np.cos(omega.value * t + phi.value) + B.value
     return t, y
 
 
@@ -66,7 +68,7 @@ def _(color_radio_opt, plt, t, y):
     fig = plt.figure(figsize=(10,6))
     ax = fig.gca()
     ax.plot(t, y, color = color_radio_opt.value)
-    ax.set_xlabel("$x$")
+    ax.set_xlabel("$t$")
     ax.set_ylabel("$y$")
     ax.set_title("Response")
     ax.grid(True)
