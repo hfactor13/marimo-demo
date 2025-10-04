@@ -55,10 +55,17 @@ def _(A, B, np, omega, phi):
 
 
 @app.cell
-def _(plt, t, y):
+def _(mo):
+    color_radio_opt = mo.ui.radio(value = "blue", options = ["red", "green", "blue"], label = "Choose a plot color")
+    color_radio_opt
+    return (color_radio_opt,)
+
+
+@app.cell
+def _(color_radio_opt, plt, t, y):
     fig = plt.figure(figsize=(10,6))
     ax = fig.gca()
-    ax.plot(t, y)
+    ax.plot(t, y, color = color_radio_opt.value)
     ax.set_xlabel("$x$")
     ax.set_ylabel("$y$")
     ax.set_title("Response")
