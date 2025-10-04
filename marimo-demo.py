@@ -23,6 +23,12 @@ def _(mo):
 
 
 @app.cell
+def _(mo):
+    mo.md(r"""## Sliders for the response plot below""")
+    return
+
+
+@app.cell
 def _(A, B, mo, omega, phi):
     mo.vstack([A, omega, phi, B])
     return
@@ -63,7 +69,7 @@ def _(plt, t, y):
 
 @app.cell
 def _(mo):
-    mo.md(r"""Example dataset with video game sales from [Kaggle](https://www.kaggle.com/code/upadorprofzs/eda-video-game-sales/input)""")
+    mo.md(r"""## Example dataset with video game sales from [Kaggle](https://www.kaggle.com/code/upadorprofzs/eda-video-game-sales/input)""")
     return
 
 
@@ -76,7 +82,7 @@ def _(pd):
 
 @app.cell
 def _(mo):
-    mo.md(r"""SQL Aggregation""")
+    mo.md(r"""## SQL Aggregation""")
     return
 
 
@@ -100,7 +106,7 @@ def _(mo, vg_sales):
 
 @app.cell
 def _(mo):
-    mo.md(r"""Chart View""")
+    mo.md(r"""## Chart View""")
     return
 
 
