@@ -126,5 +126,11 @@ def _(pd, vg_sales):
     return
 
 
+@app.cell
+def _(mo):
+    mo.md(r"""## If you like marimo, be sure to follow their YouTube channel [here](https://www.youtube.com/@marimo-team) and contribute to the project on their [GitHub](https://github.com/marimo-team/marimo). For more learning materials on marimo, visit this [repo](https://github.com/marimo-team/learn).""")
+    return
+
+
 if __name__ == "__main__":
     app.run()
