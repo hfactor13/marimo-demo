@@ -15,10 +15,10 @@ def _():
 
 @app.cell
 def _(mo):
-    A = mo.ui.slider(start = -10, stop = 10, value = 1, step = 0.25, label = "A", show_value = True)
-    omega = mo.ui.slider(start = 0, stop = 10, value = 1, step = 0.25, label = r"$\omega$", show_value = True)
-    phi = mo.ui.slider(start = -10, stop = 10, value = 0, step = 0.25, label = r"$\phi$", show_value = True)
-    B = mo.ui.slider(start = -10, stop = 10, value = 0, step = 0.25, label = "B", show_value = True)
+    A = mo.ui.slider(start = -10, stop = 10, value = 1, step = 0.25, label = "A", show_value = True, include_input = True)
+    omega = mo.ui.slider(start = 0, stop = 10, value = 1, step = 0.25, label = r"$\omega$", show_value = True, include_input = True)
+    phi = mo.ui.slider(start = -10, stop = 10, value = 0, step = 0.25, label = r"$\phi$", show_value = True, include_input = True)
+    B = mo.ui.slider(start = -10, stop = 10, value = 0, step = 0.25, label = "B", show_value = True, include_input = True)
     return A, B, omega, phi
 
 
