@@ -17,3 +17,5 @@ dependencies = [
     "sqlglot>=27.20.0,<28",
     "pyarrow>=21.0.0,<22"
 ]
+
+[tasks]
