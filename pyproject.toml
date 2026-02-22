@@ -28,3 +28,6 @@ platforms = ["osx-arm64"]
 marimo-demo = { path = ".", editable = true }
 
 [tool.pixi.tasks]
+
+[tool.pixi.dependencies]
+jupyterlab = ">=4.5.4,<5"
