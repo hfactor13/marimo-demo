@@ -19,3 +19,12 @@ dependencies = [
 ]
 
 [tasks]
+
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["osx-arm64"]
+
+[tool.pixi.pypi-dependencies]
+marimo-demo = { path = ".", editable = true }
+
+[tool.pixi.tasks]
