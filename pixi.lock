@@ -163,7 +163,7 @@ environments:
       - pypi: https://files.pythonhosted.org/packages/04/96/92447566d16df59b2a776c0fb82dbc4d9e07cd95062562af01e408583fc4/itsdangerous-2.2.0-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/2d/7a/9d90a151f558e29c3936b8a47ac770235f436f2120aca41a6d5f3d62ae8d/kiwisolver-1.4.9-cp313-cp313-macosx_11_0_arm64.whl
       - pypi: https://files.pythonhosted.org/packages/bc/3b/d1a01af3446cb98890349215bea7e71ba49dc3e50ffbfb90c5649657a8b8/loro-1.10.3-cp313-cp313-macosx_11_0_arm64.whl
-      - pypi: https://files.pythonhosted.org/packages/0d/a0/14bd2ae122db3c4c43c6ebf0c861196328156f61e6452c2cd67b730430b0/marimo-0.16.5-py3-none-any.whl
+      - pypi: https://files.pythonhosted.org/packages/93/55/6d128565bb18cb1f64707742bdbf05f7b1674e4063f70500de97b0be6a3e/marimo-0.20.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/de/1f/77fa3081e4f66ca3576c896ae5d31c3002ac6607f9747d2e3aa49227e464/markdown-3.10.2-py3-none-any.whl
       - pypi: https://files.pythonhosted.org/packages/8d/a0/2ba3473c1b66b9c74dc7107c67e9008cb1782edbe896d4c899d39ae9cf78/matplotlib-3.10.8-cp313-cp313-macosx_11_0_arm64.whl
       - pypi: https://files.pythonhosted.org/packages/57/b6/eff0305961a1d9447ec2b02f8c73c8946f22564d302a504185b730c9a761/msgspec-0.20.0-cp313-cp313-macosx_11_0_arm64.whl
@@ -1344,60 +1344,53 @@ packages:
   version: 1.10.3
   sha256: ed966ce6ff1fb3787b3f6c4ed6dd036baa5fb738b84a466a5e764f2ab534ccc2
   requires_python: '>=3.8'
-- pypi: https://files.pythonhosted.org/packages/0d/a0/14bd2ae122db3c4c43c6ebf0c861196328156f61e6452c2cd67b730430b0/marimo-0.16.5-py3-none-any.whl
+- pypi: https://files.pythonhosted.org/packages/93/55/6d128565bb18cb1f64707742bdbf05f7b1674e4063f70500de97b0be6a3e/marimo-0.20.2-py3-none-any.whl
   name: marimo
-  version: 0.16.5
-  sha256: 1f98c0ee0fed9337e26c895c662f92cc578cdd03502c194eac9ceeb434bf479b
+  version: 0.20.2
+  sha256: f94a1bd19fa85219d0549281776e7ec4c9253d5d5849d6f2459cc3ab868abbc5
   requires_dist:
   - click>=8.0,<9
   - jedi>=0.18.0
   - markdown>=3.6,<4
   - pymdown-extensions>=10.15,<11
-  - pygments>=2.13,<3
+  - pygments>=2.19,<3
   - tomlkit>=0.12.0
-  - pyyaml>=6.0
-  - uvicorn>=0.22.0,<0.36.0
-  - starlette>=0.35.0,!=0.36.0
+  - pyyaml>=6.0.1
+  - uvicorn>=0.22.0
+  - starlette>=0.37.2
   - websockets>=14.2.0
-  - loro>=1.5.0 ; python_full_version >= '3.11'
+  - loro>=1.10.0
   - typing-extensions>=4.4.0 ; python_full_version < '3.11'
   - docutils>=0.16.0
   - psutil>=5.0
   - itsdangerous>=2.0.0
   - narwhals>=2.0.0
   - packaging
-  - msgspec>=0.19.0
-  - click>=8.0,<9 ; extra == 'dev'
-  - black~=23.12.1 ; extra == 'dev'
-  - opentelemetry-api~=1.26.0 ; extra == 'dev'
-  - opentelemetry-sdk~=1.26.0 ; extra == 'dev'
-  - duckdb>=1.0.0 ; extra == 'dev'
-  - sqlglot[rs]>=26.2.0 ; extra == 'dev'
-  - ruff>=0.13.2 ; extra == 'dev'
-  - openai>=1.55.3 ; extra == 'dev'
+  - msgspec>=0.20.0
   - python-lsp-server>=1.13.0 ; extra == 'lsp'
   - python-lsp-ruff>=2.0.0 ; extra == 'lsp'
-  - mcp>=1.0.0 ; python_full_version >= '3.10' and extra == 'mcp'
-  - pydantic>2 ; python_full_version >= '3.10' and extra == 'mcp'
-  - duckdb>=1.0.0 ; extra == 'recommended'
+  - mcp>=1.0.0 ; extra == 'mcp'
+  - pydantic>2 ; extra == 'mcp'
+  - marimo[sql] ; extra == 'recommended'
+  - marimo[sandbox] ; extra == 'recommended'
   - altair>=5.4.0 ; extra == 'recommended'
-  - polars[pyarrow]>=1.9.0 ; extra == 'recommended'
-  - sqlglot[rs]>=26.2.0 ; extra == 'recommended'
-  - openai>=1.55.3 ; extra == 'recommended'
+  - pydantic-ai-slim[openai]>=1.39.0 ; extra == 'recommended'
   - ruff ; extra == 'recommended'
   - nbformat>=5.7.0 ; extra == 'recommended'
+  - pyzmq>=27.1.0 ; extra == 'sandbox'
+  - uv>=0.9.21 ; extra == 'sandbox'
   - duckdb>=1.0.0 ; extra == 'sql'
   - polars[pyarrow]>=1.9.0 ; extra == 'sql'
-  - sqlglot[rs]>=26.2.0 ; extra == 'sql'
-  requires_python: '>=3.9'
+  - sqlglot[rs]>=26.2.0,<28.7.0 ; extra == 'sql'
+  requires_python: '>=3.10'
 - pypi: ./
   name: marimo-demo
   version: 0.1.0
-  sha256: 827056f2ea98145d3666dc88a5bc2f1ee973800d29c03655e50a9fd231ceebcd
+  sha256: fd1e10cd10a25f52f503678f7fc6a674b324f2bfb221750861291af760ac57f5
   requires_dist:
   - numpy>=2.3.3,<3
   - matplotlib>=3.10.6,<4
-  - marimo>=0.16.5,<0.17
+  - marimo
   - altair>=5.5.0,<6
   - pandas>=2.3.3,<3
   - seaborn>=0.13.2,<0.14
