@@ -5,7 +5,7 @@ app = marimo.App(width="medium")
 
 
 @app.cell
-def _():
+def library_setup():
     import marimo as mo
     import numpy as np
     import matplotlib.pyplot as plt
@@ -15,7 +15,7 @@ def _():
 
 
 @app.cell
-def _(mo):
+def define_sliders(mo):
     A = mo.ui.slider(start = -10, stop = 10, value = 1, step = 0.25, label = "A", show_value = True, include_input = True)
     omega = mo.ui.slider(start = 0, stop = 10, value = 1, step = 0.25, label = r"$\omega$", show_value = True, include_input = True)
     phi = mo.ui.slider(start = -10, stop = 10, value = 0, step = 0.25, label = r"$\phi$", show_value = True, include_input = True)
@@ -33,7 +33,7 @@ def _(mo):
 
 
 @app.cell
-def _(A, B, C, mo, omega, phi):
+def sliders(A, B, C, mo, omega, phi):
     mo.vstack([A, omega, phi, B, C])
     return
 
@@ -55,7 +55,7 @@ def _(A, B, C, mo, omega, phi):
 
 
 @app.cell
-def _(color_radio_opt, plt, t, y):
+def response_plot(color_radio_opt, plt, t, y):
     fig = plt.figure(figsize=(10,6))
     ax = fig.gca()
     ax.plot(t, y, color = color_radio_opt.value)
@@ -68,14 +68,14 @@ def _(color_radio_opt, plt, t, y):
 
 
 @app.cell
-def _(mo):
+def radio_buttons(mo):
     color_radio_opt = mo.ui.radio(value = "blue", options = ["red", "green", "blue"], label = "Choose a plot color")
     color_radio_opt
     return (color_radio_opt,)
 
 
 @app.cell
-def _(A, B, C, np, omega, phi):
+def response_definition(A, B, C, np, omega, phi):
     t = np.arange(0, 20, 0.06)
     y = np.exp(-C.value*t) * A.value * np.cos(omega.value * t + phi.value) + B.value
     return t, y
@@ -90,7 +90,7 @@ def _(mo):
 
 
 @app.cell
-def _(pd):
+def vg_dataset(pd):
     vg_sales = pd.read_csv("./data/vgsales.csv")
     vg_sales
     return (vg_sales,)
@@ -105,7 +105,7 @@ def _(mo):
 
 
 @app.cell
-def _(mo, vg_sales):
+def sql_aggregation(mo, vg_sales):
     vg_sales_agg = mo.sql(
         f"""
         SELECT 
@@ -131,7 +131,7 @@ def _(mo):
 
 
 @app.cell
-def _(pd, vg_sales):
+def vg_line_plot(pd, vg_sales):
     vg_sales["Category of Global Sales"] = pd.cut(vg_sales["Global_Sales"], bins = 5, labels = ["Very Low", "Low", "Medium", "High", "Very High"])
     vg_sales
     return
