@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.16.5"
+__generated_with = "0.20.2"
 app = marimo.App(width="medium")
 
 
@@ -10,6 +10,7 @@ def _():
     import numpy as np
     import matplotlib.pyplot as plt
     import pandas as pd
+
     return mo, np, pd, plt
 
 
@@ -25,7 +26,9 @@ def _(mo):
 
 @app.cell
 def _(mo):
-    mo.md(r"""## Sliders for the response plot below""")
+    mo.md(r"""
+    ## Sliders for the response plot below
+    """)
     return
 
 
@@ -37,30 +40,18 @@ def _(A, B, C, mo, omega, phi):
 
 @app.cell
 def _(A, B, C, mo, omega, phi):
-    mo.md(
-        f"""
+    mo.md(f"""
+    $$
+    y = A \exp(-C t) \cos(\omega t + \phi) + B
+    $$
+
     The **amplitude** is {A.value} \n
     The **angular frequency** is {omega.value} \n
     The **phase shift** is {phi.value} \n
     The **intercept** is {B.value} \n
     The **exponential decay parameter** is {C.value}
-    """
-    )
+    """)
     return
-
-
-@app.cell
-def _(A, B, C, np, omega, phi):
-    t = np.arange(0, 20, 0.06)
-    y = np.exp(-C.value*t) * A.value * np.cos(omega.value * t + phi.value) + B.value
-    return t, y
-
-
-@app.cell
-def _(mo):
-    color_radio_opt = mo.ui.radio(value = "blue", options = ["red", "green", "blue"], label = "Choose a plot color")
-    color_radio_opt
-    return (color_radio_opt,)
 
 
 @app.cell
@@ -78,7 +69,23 @@ def _(color_radio_opt, plt, t, y):
 
 @app.cell
 def _(mo):
-    mo.md(r"""## Example dataset with video game sales from [Kaggle](https://www.kaggle.com/code/upadorprofzs/eda-video-game-sales/input)""")
+    color_radio_opt = mo.ui.radio(value = "blue", options = ["red", "green", "blue"], label = "Choose a plot color")
+    color_radio_opt
+    return (color_radio_opt,)
+
+
+@app.cell
+def _(A, B, C, np, omega, phi):
+    t = np.arange(0, 20, 0.06)
+    y = np.exp(-C.value*t) * A.value * np.cos(omega.value * t + phi.value) + B.value
+    return t, y
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    ## Example dataset with video game sales from [Kaggle](https://www.kaggle.com/code/upadorprofzs/eda-video-game-sales/input)
+    """)
     return
 
 
@@ -91,7 +98,9 @@ def _(pd):
 
 @app.cell
 def _(mo):
-    mo.md(r"""## SQL Aggregation""")
+    mo.md(r"""
+    ## SQL Aggregation
+    """)
     return
 
 
@@ -115,7 +124,9 @@ def _(mo, vg_sales):
 
 @app.cell
 def _(mo):
-    mo.md(r"""## Chart View""")
+    mo.md(r"""
+    ## Chart View
+    """)
     return
 
 
@@ -128,7 +139,9 @@ def _(pd, vg_sales):
 
 @app.cell
 def _(mo):
-    mo.md(r"""## If you like marimo, be sure to follow their YouTube channel [here](https://www.youtube.com/@marimo-team) and contribute to the project on their [GitHub](https://github.com/marimo-team/marimo). For more learning materials on marimo, visit this [repo](https://github.com/marimo-team/learn).""")
+    mo.md(r"""
+    ## If you like marimo, be sure to follow their YouTube channel [here](https://www.youtube.com/@marimo-team) and contribute to the project on their [GitHub](https://github.com/marimo-team/marimo). For more learning materials on marimo, visit this [repo](https://github.com/marimo-team/learn).
+    """)
     return
 
 

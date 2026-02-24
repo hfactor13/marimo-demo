@@ -1386,11 +1386,11 @@ packages:
 - pypi: ./
   name: marimo-demo
   version: 0.1.0
-  sha256: fd1e10cd10a25f52f503678f7fc6a674b324f2bfb221750861291af760ac57f5
+  sha256: 2b142f07c49d0ef5fe16e58aab920dc1a3036b5cc7755331558425ab170655bb
   requires_dist:
   - numpy>=2.3.3,<3
   - matplotlib>=3.10.6,<4
-  - marimo
+  - marimo>=0.20.2,<0.21
   - altair>=5.5.0,<6
   - pandas>=2.3.3,<3
   - seaborn>=0.13.2,<0.14
