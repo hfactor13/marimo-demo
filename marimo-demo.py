@@ -40,7 +40,7 @@ def sliders(A, B, C, mo, omega, phi):
 
 @app.cell
 def _(A, B, C, mo, omega, phi):
-    mo.md(f"""
+    mo.md(rf"""
     $$
     y = A \exp(-C t) \cos(\omega t + \phi) + B
     $$
