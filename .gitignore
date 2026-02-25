@@ -1,5 +1,6 @@
 data
 __pycache__
+__marimo__
 *.egg-info
 # pixi environments
 .pixi/*
