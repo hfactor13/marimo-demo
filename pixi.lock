@@ -1909,7 +1909,7 @@ packages:
 - pypi: ./
   name: marimo-demo
   version: 0.1.0
-  sha256: faf4f90448078b770167b9bd59eced9b3a955aeaab195b25c02b158a7ffbb2fa
+  sha256: 4256342e7d1de38c76babd15274c356e1c5ffbc34ba3e989f1ee9039f26b300b
   requires_dist:
   - numpy>=2.3.3,<3
   - matplotlib>=3.10.6,<4

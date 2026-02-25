@@ -18,16 +18,12 @@ dependencies = [
     "pyarrow>=21.0.0,<22"
 ]
 
-[tasks]
-
 [tool.pixi.workspace]
 channels = ["conda-forge"]
 platforms = ["osx-arm64"]
 
 [tool.pixi.pypi-dependencies]
 marimo-demo = { path = ".", editable = true }
-
-[tool.pixi.tasks]
 
 [tool.pixi.dependencies]
 jupyterlab = ">=4.5.4,<5"
