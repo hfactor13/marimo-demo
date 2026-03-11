@@ -1,25 +1,11 @@
-import marimo
+import pytest
+import pandas as pd
 
-__generated_with = "0.20.2"
-app = marimo.App(width="medium")
-
-
-@app.cell
-def _():
-    import marimo as mo
-    import pytest
-    import pandas as pd
-
-    return mo, pd
-
-
-@app.cell
-def _(mo, pd):
-    def test_vg_sales_data():
-        vg_sales = pd.read_csv("./data/vgsales.csv")
-        assert len(vg_sales.columns) == 11
-    def test_vg_sales_agg():
-        vg_sales_agg = mo.sql("""
+def test_vg_sales_data():
+    vg_sales = pd.read_csv("./data/vgsales.csv")
+    assert len(vg_sales.columns) == 11
+def test_vg_sales_agg():
+    vg_sales_agg = mo.sql("""
         SELECT 
             Name, 
             SUM(NA_Sales) AS Total_NA_Sales, 
@@ -30,10 +16,7 @@ def _(mo, pd):
         FROM "./data/vgsales.csv"
         GROUP BY Name
         """, output = False)
-        assert len(vg_sales_agg.columns) == 6
-
-    return
-
+    assert len(vg_sales_agg.columns) == 6
 
 if __name__ == "__main__":
     app.run()
