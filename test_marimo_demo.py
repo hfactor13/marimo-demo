@@ -1,8 +1,9 @@
-import pytest
+from marimo_demo import vg_dataset
 import pandas as pd
+import marimo as mo
 
 def test_vg_sales_data():
-    vg_sales = pd.read_csv("./data/vgsales.csv")
+    vg_sales = vg_dataset(pd)
     assert len(vg_sales.columns) == 11
 def test_vg_sales_agg():
     vg_sales_agg = mo.sql("""
@@ -17,6 +18,3 @@ def test_vg_sales_agg():
         GROUP BY Name
         """, output = False)
     assert len(vg_sales_agg.columns) == 6
-
-if __name__ == "__main__":
-    app.run()
