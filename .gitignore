@@ -2,6 +2,7 @@ data
 __pycache__
 __marimo__
 *.egg-info
+layouts
 # pixi environments
 .pixi/*
 !.pixi/config.toml
